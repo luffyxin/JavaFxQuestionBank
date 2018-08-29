@@ -131,6 +131,8 @@ public class MainApp extends Application {
         if (file != null) {
             loadPersonDataFromFile(file);
         }
+
+
     }
 
 
