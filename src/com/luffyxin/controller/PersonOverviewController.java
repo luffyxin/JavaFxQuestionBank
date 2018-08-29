@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.controlsfx.dialog.Dialogs;
-import sample.Main;
+import sample.MainApp;
 
 /**
  * Created by ${DX} on 2018/8/29.
@@ -34,7 +34,7 @@ public class PersonOverviewController {
     private Label birthdayLabel;
 
     // Reference to the main application.
-    private Main mainApp;
+    private MainApp mainAppApp;
 
     /**
      * The constructor.
@@ -65,13 +65,13 @@ public class PersonOverviewController {
     /**
      * Is called by the main application to give a reference back to itself.
      *
-     * @param mainApp
+     * @param mainAppApp
      */
-    public void setMainApp(Main mainApp) {
-        this.mainApp = mainApp;
+    public void setMainAppApp(MainApp mainAppApp) {
+        this.mainAppApp = mainAppApp;
 
         // Add observable list data to the table
-        personTable.setItems(mainApp.getPersonData());
+        personTable.setItems(mainAppApp.getPersonData());
     }
 
     /**
@@ -125,9 +125,9 @@ public class PersonOverviewController {
     @FXML
     private void handleNewPerson() {
         Person tempPerson = new Person();
-        boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+        boolean okClicked = mainAppApp.showPersonEditDialog(tempPerson);
         if (okClicked) {
-            mainApp.getPersonData().add(tempPerson);
+            mainAppApp.getPersonData().add(tempPerson);
         }
     }
 
@@ -139,7 +139,7 @@ public class PersonOverviewController {
     private void handleEditPerson() {
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
-            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+            boolean okClicked = mainAppApp.showPersonEditDialog(selectedPerson);
             if (okClicked) {
                 showPersonDetails(selectedPerson);
             }
