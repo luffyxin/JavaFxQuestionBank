@@ -1,8 +1,10 @@
 package com.luffyxin.view;
 
+import com.sun.deploy.ref.AppModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -14,6 +16,8 @@ import java.util.Random;
  * Created by ${DX} on 2018/9/2.
  */
 public class WebViewController {
+
+
     @FXML
     private Button takeout;
     @FXML
@@ -22,12 +26,19 @@ public class WebViewController {
     private Button pre;
     @FXML
     private WebView web;
+    @FXML
+    private  Label weblab;
+
 
     private WebEngine webEngine;
 
     private ArrayList<String> urls=new ArrayList<>();
 
     private int index;
+
+    public WebViewController(){
+        Context.controllers.put(this.getClass().getSimpleName(), this);
+    }
 
     @FXML
     public void takeButtonClick(ActionEvent actionEvent) {
@@ -42,6 +53,7 @@ public class WebViewController {
     }
     @FXML
     public void initialize(){
+
         webEngine = web.getEngine();
         File f=new File("src/com/luffyxin/resources");
         File fs[]=f.listFiles();
