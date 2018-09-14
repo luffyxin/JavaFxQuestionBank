@@ -1,74 +1,37 @@
 package com.luffyxin.view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+
+import javafx.scene.control.RadioButton;
+
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class OptionSelectController {
 
     @FXML
-    private GridPane gridpane;
+    private AnchorPane ap;
 
     @FXML
     public void initialize(){
-        gridpane.setHgap(5);
-        gridpane.setVgap(5);
-        List<Label> classify= Arrays.asList(
-                new Label("分类A"),
-                new Label("分类B"),
-                new Label("分类C"),
-                new Label("分类D"),
-                new Label("分类E"),
-                new Label("分类F"),
-                new Label("分类A"),
-                new Label("分类B"),
-                new Label("分类C"),
-                new Label("分类D"),
-                new Label("分类E"),
-                new Label("分类F"),
-                new Label("分类A"),
-                new Label("分类B"),
-                new Label("分类C"),
-                new Label("分类D"),
-                new Label("分类E"),
-                new Label("分类F")
+      List<RadioButton> radios= Arrays.asList(
+                new RadioButton("常量变量"),
+                new RadioButton("流程控制语句"),
+                new RadioButton("数组"),
+                new RadioButton("方法"),
+                new RadioButton("基础强化"),
+                new RadioButton("类、封装、this、构造方法"),
+                new RadioButton("Scanner类、String类、StringBuilder类"),
+                new RadioButton("ArrayList集合"),
+                new RadioButton("字符流、字符缓冲流")
         );
-        List<TextField> nums=Arrays.asList(
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField(),
-                new TextField()
-        );
-        for (int i=0;i<nums.size();i++){
-            gridpane.add(classify.get(i),0,i);
-            gridpane.add(nums.get(i),1,i);
-        }
-
-
-
-
-
-
+        for(int i=0;i<radios.size();i++)
+        ap.getChildren().add(i,radios.get(i));
     }
 
 }
